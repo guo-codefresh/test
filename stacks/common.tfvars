@@ -1,1 +1,1 @@
-shtest file
+test file
