@@ -1,2 +1,2 @@
-FROM: r.cfcr.io/guozeng/codefresh-io/cli:latest
+FROM r.cfcr.io/guozeng/codefresh-io/cli:latest
 
