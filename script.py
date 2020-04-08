@@ -2,3 +2,4 @@
 
 
 print('Hello World!')
+os.rename('/tmp/file.txt', 'dest.txt')
