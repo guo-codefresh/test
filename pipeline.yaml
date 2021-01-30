@@ -14,7 +14,7 @@ steps:
     commands:
       - "ls"
     stage: "test"
-  test:
+  test2:
     title: "Running test 2"
     type: "freestyle" # Run any command
     image: "ubuntu:latest"
