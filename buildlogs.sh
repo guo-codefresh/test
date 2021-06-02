@@ -16,4 +16,5 @@ LOGS_URL=$(curl --silent \
 # echo $LOGS_URL
 
 printf "\tDownloading logs to ${BUILD_ID}.json \n"
-curl --silent $LOGS_URL --output ${BUILD_ID}.json
+# curl --silent $LOGS_URL --output ${BUILD_ID}.json
+curl $LOGS_URL
