@@ -1,6 +1,6 @@
 echo "- BUILD: $BUILD_ID"
 # printf "\tGetting the Progress ID: "
-PROGRESS_ID=$(curl --silent \
+PROGRESS_ID=$(curl \
     -X GET \
     -H "Authorization: ${API_KEY}" \
     "https://g.codefresh.io/api/builds/${BUILD_ID}" \
@@ -8,7 +8,7 @@ PROGRESS_ID=$(curl --silent \
 # echo $PROGRESS_ID
 
 # printf "\tGetting the Temporary Logs URL: "
-LOGS_URL=$(curl --silent \
+LOGS_URL=$(curl \
     -X GET \
     -H "Authorization: ${API_KEY}" \
     "https://g.codefresh.io/api/progress/${PROGRESS_ID}" \
