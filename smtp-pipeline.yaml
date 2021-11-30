@@ -21,9 +21,15 @@ hooks:
           SMTP_PORT: "587"
 
 steps:
-  run_command_step:
-    title: Running command on image
-    type: guozeng/test
+  SendEmail:
+    type: smtp
     arguments:
-      IMAGE: 'alpine:latest'
-      COMMAND: 'echo "<hello>"'
+      TO: guo@codefresh.io
+      FROM: evonecia@gmail.com
+      SUBJECT: 'Testing smtp from build step'
+      BODY: '<html><a href="${{CF_BUILD_URL}}">Codefresh Build</a></html>'
+      MIME_TYPE: html
+      SMTP_SERVER: smtp.gmail.com
+      SMTP_USERNAME: evonecia@gmail.com
+      SMTP_PASSWORD: ${{password}}
+      SMTP_PORT: "587"
