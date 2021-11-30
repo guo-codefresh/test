@@ -14,7 +14,7 @@ hooks:
           FROM: evonecia@gmail.com
           SUBJECT: 'Testing smtp from build hook'
           BODY: '<html><a href="${{CF_BUILD_URL}}">Codefresh Build</a></html>'
-          MIME_TYPE: text/html
+          MIME_TYPE: html
           SMTP_SERVER: smtp.gmail.com
           SMTP_USERNAME: evonecia@gmail.com
           SMTP_PASSWORD: ${{password}}
