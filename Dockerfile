@@ -1,3 +1,3 @@
 FROM alpine:latest
 
-COPY . $HOME/
+COPY pipeline.yaml /app/pipeline.yaml
