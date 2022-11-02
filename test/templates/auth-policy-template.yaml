@@ -1,0 +1,27 @@
+{{- range $service := .Values.apps }}
+apiVersion: "security.istio.io/v1beta1"
+kind: "AuthorizationPolicy"
+metadata:
+  name: '{{ $service.name }}-access'
+  namespace: {{ $service.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $service.name }}
+  rules:
+{{- range $authorization := $service.authorization }}
+    {{- range $method, $p2p := .p2p }}
+      {{- range $principal := $p2p }}
+  - from:
+      - source:
+          principals:
+            - {{ $principal }}
+    to:
+      - operation:
+          methods:
+            - {{ $method }}
+      {{- end }}
+    {{- end }}
+{{- end }}
+---
+{{- end }}

@@ -1,0 +1,35 @@
+version: "1.0"
+# Stages can help you organize your steps in stages
+stages:
+  - "clone"
+  - "build"
+  - "test"
+hooks:
+  on_finish:
+    steps:
+      send_email:
+        type: smtp
+        arguments:
+          TO: guo@codefresh.io
+          FROM: evonecia@gmail.com
+          SUBJECT: 'Testing smtp from build hook'
+          BODY: '<html><a href="${{CF_BUILD_URL}}">Codefresh Build</a></html>'
+          MIME_TYPE: html
+          SMTP_SERVER: smtp.gmail.com
+          SMTP_USERNAME: evonecia@gmail.com
+          SMTP_PASSWORD: ${{password}}
+          SMTP_PORT: "587"
+
+steps:
+  SendEmail:
+    type: smtp
+    arguments:
+      TO: guo@codefresh.io
+      FROM: evonecia@gmail.com
+      SUBJECT: 'Testing smtp from build step'
+      BODY: '<html><a href="${{CF_BUILD_URL}}">Codefresh Build</a></html>'
+      MIME_TYPE: html
+      SMTP_SERVER: smtp.gmail.com
+      SMTP_USERNAME: evonecia@gmail.com
+      SMTP_PASSWORD: ${{password}}
+      SMTP_PORT: "587"
