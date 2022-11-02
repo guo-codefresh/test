@@ -1,0 +1,23 @@
+version: "1.0"
+# Stages can help you organize your steps in stages
+stages:
+  - "clone"
+  - "build"
+  - "test"
+
+steps:
+  test:
+    title: "Running test"
+    type: "freestyle" # Run any command
+    image: "ubuntu:latest" # The image in which command will be executed
+    #working_directory: "${{clone}}" # Running command where code cloned
+    commands:
+      - "ls"
+    stage: "test"
+  test2:
+    title: "Running test 2"
+    type: "freestyle" # Run any command
+    image: "ubuntu:latest"
+    commands:
+      - "ls"
+    stage: "test"

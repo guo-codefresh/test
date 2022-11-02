@@ -1,0 +1,18 @@
+apps:
+  test:
+    name: test
+    namespace: default
+    authorization:
+      - p2p:
+          GET:
+            - test1
+            - test2
+          DELETE:
+            - test1
+            - test2
+          POST:
+            - test1
+            - test2
+          PUT:
+            - test1
+            - test2
